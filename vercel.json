@@ -2,17 +2,22 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/*.js",
+      "src": "api/contacts.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "api/analytics.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "/api/$1"
+      "src": "/api/contacts",
+      "dest": "/api/contacts.js"
+    },
+    {
+      "src": "/api/analytics",
+      "dest": "/api/analytics.js"
     }
-  ],
-  "env": {
-    "NODE_ENV": "production"
-  }
+  ]
 }
